@@ -1,0 +1,49 @@
+<style>
+  .navbar {
+    background-color: #0c8063 !important;
+  }
+  .navbar a {
+    color: rgb(229, 228, 248) !important;
+  }
+  .navbar .navbar-brand {
+    background-color: rgb(245, 44, 44);
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fs-1 mb-2" href="#">Blogify</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active fs-3" aria-current="page" href="/user/home"
+          >Home</a
+        >
+        <a class="nav-link fs-3" href="/add_blogs">Add-blog</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(currentUser){ %>
+
+        <a class="nav-link fs-3" href="/user/blogs/<%= currentUser._id %>"
+          >your Blogs</a
+        >
+        <a class="nav-link fs-3" href="/user/logout">logout</a>
+        <%} %> <%if(!currentUser) { %>
+        <a class="nav-link fs-3" href="/user/signin">signin</a>
+        <a class="nav-link fs-3" href="/user/signup">signup</a>
+
+        <%} %>
+      </div>
+    </div>
+  </div>
+</nav>

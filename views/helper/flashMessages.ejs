@@ -1,0 +1,38 @@
+<% if(successMsg.length>0 ){%>
+<style>
+  .alert {
+    width: 40% !important;
+    margin-left: 30% !important;
+  }
+  .alert-danger {
+    width: 40% !important;
+    margin-left: 30% !important;
+  }
+</style>
+<div
+  class="alert alert-success alert-dismissible fade show text-center"
+  role="alert"
+>
+  <strong><%= successMsg %></strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<%} %> <% if(errorMsg.length>0){%>
+
+<div
+  class="alert alert-danger alert-dismissible fade show text-center"
+  role="alert"
+>
+  <strong><%= errorMsg %></strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<%} %>

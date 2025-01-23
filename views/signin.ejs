@@ -1,0 +1,52 @@
+<%- layout("./layouts/boilerplate.ejs") -%>
+
+<style>
+  .form {
+    margin-top: 4rem !important;
+    border: 1px solid rgb(245, 238, 238);
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px 10px whitesmoke;
+  }
+  .text-center {
+    background-color: #322c2b;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  .signinBtn {
+    background-color: #2a6856 !important;
+  }
+</style>
+<div class="container m-4">
+  <form action="/user/signin" method="post" class="form p-4">
+    <h1 class="text-center"><b>SignIn</b></h1>
+    <div class="row">
+      <div class="mb-3 col-6 offset-3">
+        <label for="username" class="form-label"><b>username</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          aria-describedby="username"
+          name="username"
+          required
+        />
+      </div>
+      <div class="mb-3 col-6 offset-3">
+        <label for="exampleInputPassword1" class="form-label"
+          ><b>Password</b></label
+        >
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn signinBtn btn-secondary col-2 offset-5">
+        <b>Submit</b>
+      </button>
+    </div>
+  </form>
+</div>

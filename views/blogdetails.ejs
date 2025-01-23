@@ -1,0 +1,101 @@
+<style>
+  .blogdetails-container {
+    display: flex;
+  }
+  .left-card {
+    width: 150% !important;
+  }
+  .btnclass {
+    display: flex;
+    flex-direction: row;
+  }
+  .btnclass form {
+    margin: 1rem !important;
+  }
+  .badge {
+    background-color: white !important;
+  }
+</style>
+<%-layout("./layouts/boilerplate.ejs")%>
+
+<div
+  class="badge text-wrap fs-1 text-center mt-1 mb-5"
+  style="width: 100%; color: black !important"
+>
+  <h1 class="page-title"><%= blogdata.title %></h1>
+</div>
+<hr />
+<div class="container blogdetails-container mt-3 mb-3">
+  <div class="card left-card border border-end-0 p-3">
+    <img src="<%= blogdata.ImageUrl1  %>" alt="monument_img" />
+    <h3 class="mt-3"><%= blogdata.title %></h3>
+    <p class="mt-3 lh-4"><%= blogdata.about %></p>
+  </div>
+  <div class="card right-card p-3">
+    <img src="<%= blogdata.ImageUrl1 %>" alt="monument_img" />
+    <img src="<%= blogdata.ImageUrl2 %>" alt="monument_img" />
+    <img src="<%= blogdata.ImageUrl3  %>" alt="monument_img" />
+  </div>
+</div>
+<div class="btnclass">
+  <form action="/user/home">
+    <button class="btn btn-primary">back</button>
+  </form>
+  <% if(currentUser.username===blogdata.createdBy.username) {%>
+  <form action="/blog/update/<%= blogdata._id  %>">
+    <button class="btn btn-warning">Update-Blog</button>
+  </form>
+  <form action="/blog/delete/<%= blogdata._id  %>?_method=DELETE" method="post">
+    <button class="btn btn-danger">Delete-Blog</button>
+  </form>
+  <%}%>
+</div>
+<hr />
+<div class="container mb-5">
+  <form
+    action="/add-comments/<%= user._id %>/<%= blogdata._id  %>"
+    method="post"
+  >
+    <div class="row">
+      <h3>Leave Your Comments-</h3>
+      <div class="col-6">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="comment"
+          style="height: 100px"
+          required
+          name="comment"
+        ></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary mt-4" type="submit">add comment</button>
+  </form>
+</div>
+
+<hr />
+<h3>Comments</h3>
+<div class="container m-3">
+  <div class="row">
+    <% for(thisblogcomment of blogComments.comments){%>
+    <div class="card col-4">
+      <p>
+        <b>@<%= thisblogcomment.commnetedBy.username%></b>
+      </p>
+
+      <p><%= thisblogcomment.comment %></p>
+
+      <form
+        action="/commentDelete/<%= thisblogcomment._id %>/<%= blogdata._id  %>/?_method=DELETE"
+        method="post"
+        class="mt-3"
+      >
+        <% if(thisblogcomment.commnetedBy.username===user.username){%>
+        <button class="btn btn-sm btn-danger">delete your comment</button>
+        <% } %>
+      </form>
+    </div>
+
+    <%} %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <%- include("../helper/head.ejs") %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: roboto, Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: rgb(248, 247, 247);
+        /* background-image: url("/background.jpg") !important; */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("../helper/navbar.ejs") %>
+    <%-include("../helper/flashMessages.ejs") %>
+    <div class="container"><%-body -%></div>
+
+    <%#- include("../helper/footer.ejs") %> <%- include("../helper/script.ejs")
+    %>
+  </body>
+</html>

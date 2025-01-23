@@ -1,0 +1,131 @@
+<body>
+  <%- layout("./layouts/boilerplate.ejs") -%>
+  <style>
+    .form {
+      margin-top: 4rem !important;
+      border: 1px solid rgb(245, 238, 238);
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 5px 5px 5px 10px whitesmoke;
+    }
+    .text-center {
+      background-color:#322C2B;
+      color: white;
+      margin-bottom: 2rem;
+    }
+  </style>
+  <div
+    class="badge text-bg-light text-wrap fs-1 text-center mt-1 mb-5"
+    style="width: 100%; color: black !important"
+  >
+    <h1 class="page-title"><b><%= blogdata.title  %></b></h1>
+  </div>
+  <hr />
+  <div class="container ">
+  <form action="/blog/update/<%= blogdata._id  %>?_method=PATCH" method="post" class="form m-3 p-4">
+    <h1 class="text-center">Update  Blog details</h1>
+      <div class="row">
+        <div class="mb-3 col-9 offset-1">
+          <label for="title" class="form-label"><b>Update Title</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            aria-describedby="title"
+            name="blog[title]"
+            value="<%=blogdata.title  %>"
+            placeholder="write title"
+            required
+          />
+        </div>
+        
+        <div class="row row-col-lg-3 row-col-md-2 row-col-sm-1">
+          <div class="mb-3 col-3 offset-1">
+          <label for="image" class="form-label"><b>Update ImageURL1</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="blog[ImageUrl1]"
+            value="<%=blogdata.ImageUrl1  %>"
+            placeholder="ImageUrl1"
+            
+          />
+        </div>
+        <div class="mb-3 col-3 ">
+          <label for="image" class="form-label"><b>Update ImageURL2</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="blog[ImageUrl2]"
+            value="<%=blogdata.ImageUrl2  %>"
+            placeholder="ImageUrl2"
+            
+          />
+        </div>
+        <div class="mb-3 col-3 ">
+          <label for="image" class="form-label"><b>Update ImageURL3</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="blog[ImageUrl3]"
+            value="<%=blogdata.ImageUrl2  %>"
+            placeholder="ImageUrl3"
+            
+          />
+        </div>
+        </div>
+
+        <div class="mb-3 col-9 offset-1">
+          <label for="location" class="form-label"><b>Location</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="blog[location]"
+            value="<%=blogdata.location  %>"
+            placeholder="location name"
+            required
+          />
+        </div>
+        
+
+        <div class="mb-3 col-9 offset-1">
+          <label for="country" class="form-label"><b>Country</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="country"
+            name="blog[country]"
+            value="<%=blogdata.country  %>"
+            placeholder="country name"
+            required
+
+          />
+        </div>
+        
+
+    
+        
+        <div class="mb-3 col-9 offset-1">
+          <label for="intro" class="form-label"><b>Intro</b></label>
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="intro" required style="height: 100px" name="blog[intro]" ><%=blogdata.intro  %></textarea>
+          </div>
+        </div>
+        
+        <div class="mb-3 col-9 offset-1">
+          <label for="about" class="form-label"><b>About</b></label>
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="about" style="height: 100px" required name="blog[about]" ><%=blogdata.about  %></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-lg col-4 offset-4 mt-3">
+          <b>Submit</b>
+        </button>
+      </div>
+    </form>
+  </div>
+</body>

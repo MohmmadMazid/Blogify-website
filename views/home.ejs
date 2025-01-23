@@ -1,0 +1,45 @@
+<style>
+  .card {
+    width: 35rem !important;
+    height: 50rem !important;
+  }
+  .container-fluide {
+    width: 100%;
+  }
+  .page-title {
+    background-color: white;
+    width: fit-content;
+    margin-left: 5rem;
+    padding: 1rem;
+  }
+  img {
+    height: 350px !important;
+  }
+</style>
+
+<%- layout("./layouts/boilerplate.ejs") -%>
+<div
+  class="badge text-bg-light text-wrap fs-1 text-center mt-1 mb-5"
+  style="width: 100%; color: black !important"
+>
+  <h1 class="page-title"><b>The Most Famous Landmarks in the World</b></h1>
+</div>
+<hr />
+<div class="container-fluide">
+  <div class="row row-cols-2 row-cols-lg-2 g-4">
+    <% for(blog of blogdata){%>
+    <div class="col-6">
+      <div class="card p-3" style="width: 18rem">
+        <img src="<%= blog.ImageUrl1  %>" class="card-img-top" alt="..." />
+        <h3><%= blog.title %></h3>
+        <div class="card-body">
+          <p class="card-text"><%= blog.intro %></p>
+        </div>
+        <form action="/blog/details/<%= blog._id  %>">
+          <button class="btn btn-info" type="submit">Read more</button>
+        </form>
+      </div>
+    </div>
+    <% }%>
+  </div>
+</div>
