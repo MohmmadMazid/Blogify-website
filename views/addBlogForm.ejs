@@ -1,3 +1,4 @@
+<%- layout("./layouts/boilerplate.ejs") -%>
 
 <style>
   .form {
@@ -8,108 +9,115 @@
     box-shadow: 5px 5px 5px 10px whitesmoke;
   }
   .text-center {
-    background-color:#322C2B;
+    background-color: #322c2b;
     color: white;
     margin-bottom: 2rem;
   }
-  </style>
-  <%- layout("./layouts/boilerplate.ejs") -%>
-  <div class="container ">
-      <form action="/add_blogs" method="post" class="form m-3 p-4">
-        <h1 class="text-center">Add Blog</h1>
-          <div class="row">
-            <div class="mb-3 col-9 offset-1">
-              <label for="title" class="form-label"><b>Title</b></label>
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                aria-describedby="title"
-                name="title"
-                placeholder="write title"
-                required
-              />
-            </div>
-            
-            <div class="row row-col-lg-3 row-col-md-2 row-col-sm-1">
-              <div class="mb-3 col-3 offset-1">
-              <label for="image" class="form-label"><b>ImageURL1</b></label>
-              <input
-                type="text"
-                class="form-control"
-                id="image"
-                name="ImageUrl1"
-                placeholder="ImageUrl1"
-                
-              />
-            </div>
-            <div class="mb-3 col-3 ">
-              <label for="image" class="form-label"><b>ImageURL2</b></label>
-              <input
-                type="text"
-                class="form-control"
-                id="image"
-                name="ImageUrl2"
-                placeholder="ImageUrl2"
-                
-              />
-            </div>
-            <div class="mb-3 col-3 ">
-              <label for="image" class="form-label"><b>ImageURL3</b></label>
-              <input
-                type="text"
-                class="form-control"
-                id="image"
-                name="ImageUrl3"
-                placeholder="ImageUrl3"
-                
-              />
-            </div>
-            </div>
+</style>
+<div class="container m-4">
+  <form action="/add_blogs" method="post" class="form m-3 p-4">
+    <h1 class="text-center">Add Blog</h1>
+    <div class="row">
+      <div class="mb-3 col-9 offset-1">
+        <label for="title" class="form-label"><b>Title</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          aria-describedby="title"
+          name="title"
+          placeholder="write title"
+          required
+        />
+      </div>
+    </div>
+    <div class="row row-col-lg-3 row-col-md-2 row-col-sm-1">
+      <div class="mb-3 col-3 offset-1">
+        <label for="image" class="form-label"><b>ImageURL1</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="image"
+          name="ImageUrl1"
+          placeholder="ImageUrl1"
+        />
+      </div>
+      <div class="mb-3 col-3">
+        <label for="image" class="form-label"><b>ImageURL2</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="image"
+          name="ImageUrl2"
+          placeholder="ImageUrl2"
+        />
+      </div>
+      <div class="mb-3 col-3">
+        <label for="image" class="form-label"><b>ImageURL3</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="image"
+          name="ImageUrl3"
+          placeholder="ImageUrl3"
+        />
+      </div>
+    </div>
 
-            <div class="mb-3 col-9 offset-1">
-              <label for="location" class="form-label"><b>Location</b></label>
-              <input
-                type="text"
-                class="form-control"
-                id="location"
-                name="location"
-                placeholder="location name"
-                required
-              />
-            </div>
-            
+    <div class="mb-3 col-9 offset-1">
+      <label for="location" class="form-label"><b>Location</b></label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="location"
+        placeholder="location name"
+        required
+      />
+    </div>
 
-            <div class="mb-3 col-9 offset-1">
-              <label for="country" class="form-label"><b>Country</b></label>
-              <input
-                type="text"
-                class="form-control"
-                id="country"
-                name="country"
-                placeholder="country name"
-                equired
+    <div class="mb-3 col-9 offset-1">
+      <label for="country" class="form-label"><b>Country</b></label>
+      <input
+        type="text"
+        class="form-control"
+        id="country"
+        name="country"
+        placeholder="country name"
+        equired
+      />
+    </div>
 
-              />
-            </div>
-            
-            <div class="mb-3 col-9 offset-1">
-              <label for="intro" class="form-label"><b>Intro</b></label>
-              <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="intro" required style="height: 100px" name="intro" ></textarea>
-              </div>
-            </div>
-            
-            <div class="mb-3 col-9 offset-1">
-              <label for="about" class="form-label"><b>About</b></label>
-              <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="about" style="height: 100px" required name="about" ></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-lg col-4 offset-4 mt-3">
-              <b>Submit</b>
-            </button>
-          </div>
-        </form>
-  </div>
+    <div class="mb-3 col-9 offset-1">
+      <label for="intro" class="form-label"><b>Intro</b></label>
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="intro"
+          required
+          style="height: 100px"
+          name="intro"
+        ></textarea>
+      </div>
+    </div>
 
+    <div class="mb-3 col-9 offset-1">
+      <label for="about" class="form-label"><b>About</b></label>
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="about"
+          style="height: 100px"
+          required
+          name="about"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg col-4 offset-4 mt-3">
+        <b>Submit</b>
+      </button>
+    </div>
+  </form>
+</div>

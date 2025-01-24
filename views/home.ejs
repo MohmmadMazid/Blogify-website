@@ -1,23 +1,21 @@
+<%- layout("./layouts/boilerplate.ejs") -%>
 <style>
   .card {
-    width: 35rem !important;
-    height: 50rem !important;
+    width: 100% !important;
+    height: 100% !important;
   }
-  .container-fluide {
-    width: 100%;
-  }
+
   .page-title {
     background-color: white;
     width: fit-content;
-    margin-left: 5rem;
+    margin-left: 12rem;
     padding: 1rem;
   }
   img {
-    height: 350px !important;
+    height: 500px !important;
   }
 </style>
 
-<%- layout("./layouts/boilerplate.ejs") -%>
 <div
   class="badge text-bg-light text-wrap fs-1 text-center mt-1 mb-5"
   style="width: 100%; color: black !important"
@@ -26,17 +24,17 @@
 </div>
 <hr />
 <div class="container-fluide">
-  <div class="row row-cols-2 row-cols-lg-2 g-4">
+  <div class="row mb-3">
     <% for(blog of blogdata){%>
-    <div class="col-6">
-      <div class="card p-3" style="width: 18rem">
-        <img src="<%= blog.ImageUrl1  %>" class="card-img-top" alt="..." />
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card" style="width: 18rem">
+        <img src="<%= blog.ImageUrl1  %>" class="card-img-top p-2" alt="..." />
         <h3><%= blog.title %></h3>
-        <div class="card-body">
+        <div class="card-body p-2">
           <p class="card-text"><%= blog.intro %></p>
         </div>
         <form action="/blog/details/<%= blog._id  %>">
-          <button class="btn btn-info" type="submit">Read more</button>
+          <button class="btn btn-info m-2" type="submit">Read more</button>
         </form>
       </div>
     </div>
