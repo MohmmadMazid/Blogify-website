@@ -57,3 +57,6 @@ Delete comments as needed.<br/>
 ├── app.js               # Main application file  <br/>
 └── README.md            # Project documentation  <br/>
 
+# 🏆 About the Project
+This project was built as part of my internship at Brainwave Matrix Solutions and is my second assignment during the internship. The platform demonstrates my ability to build a full-stack application with key features such as user authentication, CRUD functionality, and a dynamic comments system.<br/>
+
