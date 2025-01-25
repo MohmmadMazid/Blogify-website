@@ -18,20 +18,16 @@
 
 <ul>
 <li>Comments Section:
-
     <ul>
-      <li>Add comments to any blog post.
-
-</li>
-      <li>Delete comments as needed.
-
-</li>
+      <li>Add comments to any blog post.</li>
+      <li>Delete comments as needed.</li>
     </ul>
     </li>  
 </ul>
 
-Delete comments as needed.
-🛠️ Tech Stack
+Delete comments as needed.<br/>
+<b>🛠️ Tech Stack
+</b> <br/>
 <b>Fontend<b/>
 <li>HTML5, CSS3, JavaScript</li>
 <li>Bootstrap for responsive design
