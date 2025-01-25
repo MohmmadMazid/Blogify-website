@@ -49,11 +49,11 @@ Delete comments as needed.<br/>
 </li>
 <b>📂 Folder Structure</b>
 <br/>
-📁 Blog Website  
-├── 📁 public            # Static assets (CSS, JavaScript, images)  
-├── 📁 views             # EJS templates  
-├── 📁 routes            # Application routes (blog, user, etc.)  
-├── 📁 models            # Mongoose schemas (Blog, User, etc.)  
-├── app.js               # Main application file  
-└── README.md            # Project documentation  
+📁 Blog Website  <br/>
+├── 📁 public            # Static assets (CSS, JavaScript, images)  <br/>
+├── 📁 views             # EJS templates  <br/>
+├── 📁 routes            # Application routes (blog, user, etc.)  <br/>
+├── 📁 models            # Mongoose schemas (Blog, User, etc.)  <br/>
+├── app.js               # Main application file  <br/>
+└── README.md            # Project documentation  <br/>
 
