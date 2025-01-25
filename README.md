@@ -47,3 +47,13 @@ Delete comments as needed.<br/>
   
 <li>Passport.js (using passport-local strategy)
 </li>
+<b>📂 Folder Structure</b>
+<br/>
+📁 Blog Website  
+├── 📁 public            # Static assets (CSS, JavaScript, images)  
+├── 📁 views             # EJS templates  
+├── 📁 routes            # Application routes (blog, user, etc.)  
+├── 📁 models            # Mongoose schemas (Blog, User, etc.)  
+├── app.js               # Main application file  
+└── README.md            # Project documentation  
+
