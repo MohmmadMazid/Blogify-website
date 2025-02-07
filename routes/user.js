@@ -51,8 +51,11 @@ router.post("/signup", async (req, res, next) => {
       req.flash("error", "try again , something went wrong !");
     }
     //pre saved middleware of mongoose
+
     const newUser = new User({ username, email, password });
     await newUser.save();
+
+    //BUILTIN LOGIN FUNCTION WHICH MAKES YOU REDIRECT ON THAT PAGE WHERE HAVE YOU COMING FROM
     req.login(newUser, (err) => {
       if (err) {
         return next();
