@@ -55,7 +55,7 @@ router.post("/signup", async (req, res, next) => {
     const newUser = new User({ username, email, password });
     await newUser.save();
 
-    //BUILTIN LOGIN FUNCTION WHICH MAKES YOU REDIRECT ON THAT PAGE WHERE HAVE YOU COMING FROM
+    //BUILTIN LOGIN FUNCTION WHICH MAKES YOU REDIREC  T ON THAT PAGE WHERE HAVE YOU COMING FROM
     req.login(newUser, (err) => {
       if (err) {
         return next();
