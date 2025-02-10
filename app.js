@@ -21,7 +21,7 @@ const passport = require("passport");
 ejsMate = require("ejs-mate");
 app.engine("ejs", ejsMate);
 const methodOverride = require("method-override");
-app.use(methodOverride("_method"));
+app.use(methodOverride("_method")); // for delete rote and update routes;
 userAuthentication(passport);
 const sessionSecret = {
   secret: "@supermanSecret",
