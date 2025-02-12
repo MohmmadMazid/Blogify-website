@@ -5,6 +5,7 @@ const User = require("../models/userSchema.js");
 const BLOG = require("../models/blogSchema.js");
 const passport = require("passport");
 const flash = require("connect-flash");
+const bcrypt = require("bcryptjs");
 const methodOverride = require("method-override");
 router.use(methodOverride("_method"));
 
@@ -52,7 +53,8 @@ router.post("/signup", async (req, res, next) => {
     }
     //pre saved middleware of mongoose
 
-    const newUser = new User({ username, email, password });
+    const hashedpassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ username, email, password: hashedpassword });
     await newUser.save();
 
     //BUILTIN LOGIN FUNCTION WHICH MAKES YOU REDIREC  T ON THAT PAGE WHERE HAVE YOU COMING FROM
