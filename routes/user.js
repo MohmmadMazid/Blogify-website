@@ -53,7 +53,7 @@ router.post("/signup", async (req, res, next) => {
     }
     //pre saved middleware of mongoose
 
-    const hashedpassword = await bcrypt.hash(password, 10);
+    // const hashedpassword = await bcrypt.hash(password, 10);  //u can  use this method when you are not ussig the monggose middle ware
     const newUser = new User({ username, email, password: hashedpassword });
     await newUser.save();
 
