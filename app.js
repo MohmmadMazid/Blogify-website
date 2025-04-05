@@ -4,9 +4,9 @@ const port = 3000;
 const path = require("path");
 const ejs = require("ejs");
 app.set("view-engine", "ejs");
-app.set("views", path.join(__dirname, "./views"));
-app.use(express.static(path.join(__dirname, "./public")));
-app.use(express.urlencoded({ extended: true }));
+app.set("views", path.join(__dirname, "./views")); // serving the ejs file and random data or dynamic data through the ejs template
+app.use(express.static(path.join(__dirname, "./public"))); //serving the static files
+app.use(express.urlencoded({ extended: true })); //for getting data from the form
 const session = require("express-session");
 const falsh = require("connect-flash");
 const mongoose = require("mongoose");

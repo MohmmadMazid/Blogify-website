@@ -110,4 +110,11 @@ router.get("/user/blogs/:id", async (req, res) => {
   }
 });
 
+router.get("/user/:id", async (req, res) => {
+  let { id } = req.params;
+  let user = await User.findById(id);
+  // res.send(user);
+  res.render("user.ejs", { user });
+});
+
 module.exports = router;

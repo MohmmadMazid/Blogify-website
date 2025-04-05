@@ -34,6 +34,15 @@
       <div class="navbar-nav ms-auto">
         <% if(currentUser){ %>
 
+        <a class="nav-link fs-3" href="/user/<%= currentUser._id %>">
+          <i class="fa-regular fa-user bg-danger p-2 rounded-pill"></i
+        ></a>
+
+        <!-- <a
+          class="nav-link fs-3 border rounded-circle bg-danger text-warning"
+          href="/user/<%#= currentUser._id %>"
+          ><%#= currentUser.username %></a
+        > -->
         <a class="nav-link fs-3" href="/user/blogs/<%= currentUser._id %>"
           >your Blogs</a
         >
