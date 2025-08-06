@@ -6,6 +6,21 @@ const User = require("../models/userSchema");
 const Comments = require("../models/commentSchema");
 const methodOverride = require("method-override");
 router.use(methodOverride("_method"));
+
+const multer = require("multer");
+// const upload = multer({ dest: "uploads/" });
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // saved inside public/uploads
+  },
+  filename: function (req, file, cb) {
+    const suffix = Date.now();
+    cb(null, suffix + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
 const isAuthenticated = async (req, res, next) => {
   // console.log(req.user);
 
@@ -22,18 +37,51 @@ router.get("/add_blogs", isAuthenticated, (req, res) => {
   res.render("./addBlogForm.ejs");
 });
 
-router.post("/add_blogs", async (req, res) => {
-  try {
-    //   console.log(req.body);
-    let newBlog = new BLOG(req.body);
-    newBlog.createdBy = req.user._id;
-    await newBlog.save();
-    // console.log("new blog saved", newBlog);
-    res.redirect("/user/home");
-  } catch (err) {
-    res.send(err);
+router.post(
+  "/add_blogs",
+  upload.fields([
+    { name: "ImageUrl1", maxCount: 1 },
+    { name: "ImageUrl2", maxCount: 1 },
+    { name: "ImageUrl3", maxCount: 1 },
+  ]),
+  async (req, res, next) => {
+    try {
+      console.log(req.body);
+      // let newBlog = new BLOG(req.body);
+      // newBlog.createdBy = req.user._id;
+      // await newBlog.save();
+      // console.log("new blog saved", newBlog);
+      // res.send(req.file);
+      const ImageUrl1 = req.files.ImageUrl1
+        ? req.files.ImageUrl1[0].filename
+        : "";
+      const ImageUrl2 = req.files.ImageUrl2
+        ? req.files.ImageUrl2[0].filename
+        : "";
+      const ImageUrl3 = req.files.ImageUrl3
+        ? req.files.ImageUrl3[0].filename
+        : "";
+      const { title, intro, about, location, country } = req.body;
+      let newBlog = new BLOG({
+        title,
+        ImageUrl1,
+        ImageUrl2,
+        ImageUrl3,
+        intro,
+        about,
+        location,
+        country,
+        createdBy: req.user._id,
+      });
+      await newBlog.save();
+      res.redirect("/user/home");
+    } catch (err) {
+      res.send(err);
+    }
+
+    console.log("file uploaded", req.files);
   }
-});
+);
 
 router.get("/blog/details/:id", isAuthenticated, async (req, res) => {
   try {

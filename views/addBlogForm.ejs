@@ -15,7 +15,12 @@
   }
 </style>
 <div class="container m-4">
-  <form action="/add_blogs" method="post" class="form m-3 p-4">
+  <form
+    action="/add_blogs"
+    method="post"
+    class="form m-3 p-4"
+    enctype="multipart/form-data"
+  >
     <h1 class="text-center">Add Blog</h1>
     <div class="row">
       <div class="mb-3 col-9 offset-1">
@@ -35,7 +40,7 @@
       <div class="mb-3 col-3 offset-1">
         <label for="image" class="form-label"><b>ImageURL1</b></label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="image"
           name="ImageUrl1"
@@ -45,7 +50,7 @@
       <div class="mb-3 col-3">
         <label for="image" class="form-label"><b>ImageURL2</b></label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="image"
           name="ImageUrl2"
@@ -55,7 +60,7 @@
       <div class="mb-3 col-3">
         <label for="image" class="form-label"><b>ImageURL3</b></label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="image"
           name="ImageUrl3"

@@ -18,6 +18,7 @@
     "express-session": "^1.18.1",
     "method-override": "^3.0.0",
     "mongoose": "^8.9.5",
+    "multer": "^2.0.2",
     "newblogsite": "file:",
     "nodemon": "^3.1.9",
     "passport": "^0.7.0",
