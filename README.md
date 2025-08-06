@@ -58,5 +58,6 @@ Delete comments as needed.<br/>
 └── README.md            # Project documentation  <br/>
 
 # 🏆 About the Project
-This project was built as part of my internship at Brainwave Matrix Solutions and is my second assignment during the internship. The platform demonstrates my ability to build a full-stack application with key features such as user authentication, CRUD functionality, and a dynamic comments system.<br/>
+This project was built as part of my coding journey intrest . The platform demonstrates my ability to build a full-stack application with key features such as user authentication, CRUD functionality, and a dynamic comments system.<br/>
+and during building this project i learn a lot like user auhtentication and auhterization and building scalable mongoose schemma and connection between multiple schemas.
 
