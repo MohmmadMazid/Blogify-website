@@ -6,18 +6,21 @@ const User = require("../models/userSchema");
 const Comments = require("../models/commentSchema");
 const methodOverride = require("method-override");
 router.use(methodOverride("_method"));
+const { storage, cloudinary } = require("../cloudConfig.js");
 
 const multer = require("multer");
 // const upload = multer({ dest: "uploads/" });
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // saved inside public/uploads
-  },
-  filename: function (req, file, cb) {
-    const suffix = Date.now();
-    cb(null, suffix + "-" + file.originalname);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "uploads/"); // saved inside public/uploads
+//   },
+//   filename: function (req, file, cb) {
+//     const suffix = Date.now();
+//     cb(null, suffix + "-" + file.originalname);
+//   },
+// });
+// const upload = multer({ storage });
+/* yaha tak purana tarika tha  */
 
 const upload = multer({ storage });
 
@@ -46,21 +49,15 @@ router.post(
   ]),
   async (req, res, next) => {
     try {
-      console.log(req.body);
+      // console.log(req.body);
       // let newBlog = new BLOG(req.body);
       // newBlog.createdBy = req.user._id;
       // await newBlog.save();
       // console.log("new blog saved", newBlog);
       // res.send(req.file);
-      const ImageUrl1 = req.files.ImageUrl1
-        ? req.files.ImageUrl1[0].filename
-        : "";
-      const ImageUrl2 = req.files.ImageUrl2
-        ? req.files.ImageUrl2[0].filename
-        : "";
-      const ImageUrl3 = req.files.ImageUrl3
-        ? req.files.ImageUrl3[0].filename
-        : "";
+      const ImageUrl1 = req.files.ImageUrl1 ? req.files.ImageUrl1[0].path : "";
+      const ImageUrl2 = req.files.ImageUrl2 ? req.files.ImageUrl2[0].path : "";
+      const ImageUrl3 = req.files.ImageUrl3 ? req.files.ImageUrl3[0].path : "";
       const { title, intro, about, location, country } = req.body;
       let newBlog = new BLOG({
         title,
@@ -75,11 +72,13 @@ router.post(
       });
       await newBlog.save();
       res.redirect("/user/home");
+
+      // console.log("file uploaded", req.files.ImageUrl1[0].path);
+      // console.log("file uploaded", req.files.ImageUrl2[0].path);
+      // console.log("file uploaded", req.files.ImageUrl3[0].path);
     } catch (err) {
       res.send(err);
     }
-
-    console.log("file uploaded", req.files);
   }
 );
 

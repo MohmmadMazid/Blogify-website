@@ -41,7 +41,7 @@
   <form action="/user/home">
     <button class="btn btn-primary">back</button>
   </form>
-  <% if(currentUser.username===blogdata.createdBy.username) {%>
+  <% if(user.username) {%>
   <form action="/blog/update/<%= blogdata._id  %>">
     <button class="btn btn-warning">Update-Blog</button>
   </form>
