@@ -1,8 +1,11 @@
 # BRAINWAVE_MATRIX_SOLUTION_BLOG_SITE
+
 # 🌍 Blog Website for Famous Landmarks
+
 # A feature-rich blog platform where users can explore, create, and interact with blogs about the world's most famous landmarks.
 
 🚀 Features
+
 <li> User Authentication: Secure account creation and login using Passport.js and passport-local strategy.
 </li>
 <ul>
@@ -29,6 +32,7 @@ Delete comments as needed.<br/>
 <b>🛠️ Tech Stack
 </b> <br/>
 <b>Fontend<b/>
+
 <li>HTML5, CSS3, JavaScript</li>
 <li>Bootstrap for responsive design
 </li>
@@ -58,6 +62,6 @@ Delete comments as needed.<br/>
 └── README.md            # Project documentation  <br/>
 
 # 🏆 About the Project
+
 This project was built as part of my coding journey intrest . The platform demonstrates my ability to build a full-stack application with key features such as user authentication, CRUD functionality, and a dynamic comments system.<br/>
 and during building this project i learn a lot like user auhtentication and auhterization and building scalable mongoose schemma and connection between multiple schemas.
-
