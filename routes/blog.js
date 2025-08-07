@@ -98,6 +98,7 @@ router.get("/blog/details/:id", isAuthenticated, async (req, res) => {
       blogdata,
       blogComments,
     });
+    console.log(blogdata.createdBy);
   } catch (err) {
     res.send(err);
   }

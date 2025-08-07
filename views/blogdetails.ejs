@@ -41,12 +41,13 @@
   <form action="/user/home">
     <button class="btn btn-primary">back</button>
   </form>
-  <% if(user.username) {%>
+  <% if(blogdata.createdBy.username===user.username){%>
   <form action="/blog/update/<%= blogdata._id  %>">
     <button class="btn btn-warning">Update-Blog</button>
   </form>
   <form action="/blog/delete/<%= blogdata._id  %>?_method=DELETE" method="post">
-    <button class="btn btn-danger">Delete-Blog</button>
+    <!-- <button class="btn btn-danger">Delete-Blog</button> -->
+    <button class="btn btn-sm btn-danger">delete your blog</button>
   </form>
   <%}%>
 </div>

@@ -80,7 +80,7 @@ router.post(
   (req, res) => {
     try {
       req.flash("success", "you are sign in successfully");
-      req.flash("error", "wrong email or password");
+      // req.flash("error", "wrong email or password");
       res.redirect("/user/home");
     } catch (err) {
       res.send(err);
