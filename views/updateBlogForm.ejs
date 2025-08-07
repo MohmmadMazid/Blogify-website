@@ -22,7 +22,7 @@
   </div>
   <hr />
   <div class="container ">
-  <form action="/blog/update/<%= blogdata._id  %>?_method=PATCH" method="post" class="form m-3 p-4">
+  <form action="/blog/update/<%= blogdata._id  %>?_method=PATCH" method="post" class="form m-3 p-4" enctype="multipart/form-data">
     <h1 class="text-center">Update  Blog details</h1>
       <div class="row">
         <div class="mb-3 col-9 offset-1">
@@ -32,7 +32,7 @@
             class="form-control"
             id="title"
             aria-describedby="title"
-            name="blog[title]"
+            name="title"
             value="<%=blogdata.title  %>"
             placeholder="write title"
             required
@@ -43,11 +43,10 @@
           <div class="mb-3 col-3 offset-1">
           <label for="image" class="form-label"><b>Update ImageURL1</b></label>
           <input
-            type="text"
+            type="file"
             class="form-control"
             id="image"
-            name="blog[ImageUrl1]"
-            value="<%=blogdata.ImageUrl1  %>"
+            name="ImageUrl1"
             placeholder="ImageUrl1"
             
           />
@@ -55,11 +54,10 @@
         <div class="mb-3 col-3 ">
           <label for="image" class="form-label"><b>Update ImageURL2</b></label>
           <input
-            type="text"
+            type="file"
             class="form-control"
             id="image"
-            name="blog[ImageUrl2]"
-            value="<%=blogdata.ImageUrl2  %>"
+            name="ImageUrl2"
             placeholder="ImageUrl2"
             
           />
@@ -67,11 +65,10 @@
         <div class="mb-3 col-3 ">
           <label for="image" class="form-label"><b>Update ImageURL3</b></label>
           <input
-            type="text"
+            type="file"
             class="form-control"
             id="image"
-            name="blog[ImageUrl3]"
-            value="<%=blogdata.ImageUrl2  %>"
+            name="ImageUrl3"
             placeholder="ImageUrl3"
             
           />
@@ -84,7 +81,7 @@
             type="text"
             class="form-control"
             id="location"
-            name="blog[location]"
+            name="location"
             value="<%=blogdata.location  %>"
             placeholder="location name"
             required
@@ -98,7 +95,7 @@
             type="text"
             class="form-control"
             id="country"
-            name="blog[country]"
+            name="country"
             value="<%=blogdata.country  %>"
             placeholder="country name"
             required
@@ -112,14 +109,14 @@
         <div class="mb-3 col-9 offset-1">
           <label for="intro" class="form-label"><b>Intro</b></label>
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="intro" required style="height: 100px" name="blog[intro]" ><%=blogdata.intro  %></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="intro" required style="height: 100px" name="intro" ><%=blogdata.intro  %></textarea>
           </div>
         </div>
         
         <div class="mb-3 col-9 offset-1">
           <label for="about" class="form-label"><b>About</b></label>
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="about" style="height: 100px" required name="blog[about]" ><%=blogdata.about  %></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="about" style="height: 100px" required name="about" ><%=blogdata.about  %></textarea>
         </div>
         
         <button type="submit" class="btn btn-primary btn-lg col-4 offset-4 mt-3">

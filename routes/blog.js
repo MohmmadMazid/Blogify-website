@@ -98,7 +98,7 @@ router.get("/blog/details/:id", isAuthenticated, async (req, res) => {
       blogdata,
       blogComments,
     });
-    console.log(blogdata.createdBy);
+    // console.log(blogdata.createdBy);
   } catch (err) {
     res.send(err);
   }
@@ -132,19 +132,57 @@ router.get("/blog/update/:id", isAuthenticated, async (req, res) => {
   }
 });
 
-router.patch("/blog/update/:id", async (req, res) => {
-  try {
-    let { id } = req.params;
-    console.log(id);
-    // console.log(req.body.blog);
-    const updatedBlog = await BLOG.findByIdAndUpdate(id, { ...req.body.blog });
-    req.flash("success", "blog updated successfully");
+router.patch(
+  "/blog/update/:id",
+  upload.fields([
+    { name: "ImageUrl1", maxCount: 1 },
+    { name: "ImageUrl2", maxCount: 1 },
+    { name: "ImageUrl3", maxCount: 1 },
+  ]),
+  async (req, res) => {
+    try {
+      let { id } = req.params;
+      // console.log(id);
+      // console.log(req.body);
+      let blog = await BLOG.findById(id);
 
-    res.redirect(`/blog/details/${id}`);
-  } catch (err) {
-    res.send(err);
+      const ImageUrl1 = req.files?.ImageUrl1
+        ? req.files.ImageUrl1[0].path
+        : blog.ImageUrl1;
+      const ImageUrl2 = req.files?.ImageUrl2
+        ? req.files.ImageUrl2[0].path
+        : blog.ImageUrl2;
+      const ImageUrl3 = req.files?.ImageUrl3
+        ? req.files.ImageUrl3[0].path
+        : blog.ImageUrl3;
+
+      // Destructure from req.body.blog (since you use blog[title], blog[about], etc.)
+      const { title, intro, about, location, country } = req.body;
+      const updatedBlog = await BLOG.findByIdAndUpdate(
+        id,
+        {
+          // ...req.body.blog,
+          title,
+          ImageUrl1,
+          ImageUrl2,
+          ImageUrl3,
+          intro,
+          about,
+          location,
+          country,
+        },
+        { new: true }
+      );
+      req.flash("success", "blog updated successfully");
+
+      res.redirect(`/blog/details/${id}`);
+      // console.log("files", req.files);
+    } catch (err) {
+      res.send(err);
+      req.flash("error", "Something went wrong while updating the blog");
+    }
   }
-});
+);
 
 router.get("/user/blogs/:id", async (req, res) => {
   try {

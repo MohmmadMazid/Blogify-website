@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const path = require("path");
 const ejs = require("ejs");
 app.set("view-engine", "ejs");
@@ -56,4 +58,4 @@ app.use((req, res, next) => {
 app.use("/user", userRoutes);
 app.use("/", blogRoutes);
 app.use("/", commentRoutes);
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
