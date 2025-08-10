@@ -1,14 +1,43 @@
 <style>
-  .card {
-    height: 120px;
-    width: 100 !important;
+  .footer_card {
+    position: relative;
+    bottom: 10px;
+    background-color: rgb(49, 53, 49);
+    color: white;
+  }
+  .social-media-link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .social-media-link h5 {
+    margin-right: 1rem;
+    font-size: x-large;
+    transition: all 2s;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  .social-media-link h5:hover {
+    scale: 1.2;
+    cursor: pointer;
+  }
+  .bg-danger {
+    height: 5px;
+    margin-top: 1rem;
   }
 </style>
-<div class="card text-center mb-0 rounded-0 mt-5">
+<div class="card text-center mb-0 rounded-0 mt-5 footer_card">
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">
-      With supporting text below as a natural lead-in to additional content.
+    <div class="social-media-link">
+      <h5 class="card-title"><i class="fa-brands fa-x-twitter"></i></h5>
+      <h5 class="card-title"><i class="fa-brands fa-square-linkedin"></i></h5>
+      <h5 class="card-title"><i class="fa-brands fa-square-facebook"></i></h5>
+      <h5 class="card-title"><i class="fa-brands fa-square-instagram"></i></h5>
+    </div>
+    <div class="bg-danger"></div>
+    <p class="card-text mt-2">
+      <b>Copyright &nbsp;2025</b><i class="fa-regular fa-copyright"></i
+      ><b> &nbsp; <i>Designed by </i> Mohmmad Mazid</b>
     </p>
   </div>
 </div>
