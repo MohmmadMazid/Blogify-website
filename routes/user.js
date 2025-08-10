@@ -47,13 +47,15 @@ router.get("/signup", (req, res) => {
 router.post("/signup", async (req, res, next) => {
   try {
     let { username, email, password } = req.body;
+    console.log(req.body);
     let user = await User.findOne({ username: username });
-    if (user) {
-      req.flash("error", "try again , something went wrong !");
+    if (!user) {
+      // req.flash("error", "try again , something went wrong !");
+      console.log("user not found");
     }
     //pre saved middleware of mongoose
 
-    // const hashedpassword = await bcrypt.hash(password, 10);  //u can  use this method when you are not ussig the monggose middle ware
+    const hashedpassword = await bcrypt.hash(password, 10); //u can  use this method when you are not ussig the monggose middle ware
     const newUser = new User({ username, email, password: hashedpassword });
     await newUser.save();
 
