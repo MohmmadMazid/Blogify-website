@@ -1,4 +1,4 @@
-# BRAINWAVE_MATRIX_SOLUTION_BLOG_SITE
+# MERN STACK WEBSITE
 
 # 🌍 Blog Website for Famous Landmarks
 
