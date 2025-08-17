@@ -19,7 +19,7 @@ const isAuthenticated = async (req, res, next) => {
   }
 };
 
-router.get("/", async (req, res) => {
+router.get("/home", async (req, res) => {
   try {
     const blogdata = await BLOG.find();
     // console.log(blogdata);

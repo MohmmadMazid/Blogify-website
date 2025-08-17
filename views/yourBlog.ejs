@@ -1,55 +1,60 @@
 <%- layout("./layouts/boilerplate.ejs") -%>
 <style>
   .card {
-  width: 100% !important;
+    width: 100% !important;
     height: 100% !important;
   }
   .container-fluide {
     width: 100%;
   }
- .page-title {
+  .page-title {
     background-color: white;
     width: fit-content;
     margin-left: 0rem;
     padding: 1rem;
   }
-   img {
+  img {
     height: 500px !important;
   }
-   .text-center {
-      background-color: #322c2b;
-      color: white;
-      margin-bottom: 2rem;
-    }
+  .text-center {
+    background-color: #322c2b;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card form {
+    display: flex;
+    justify-content: flex-start;
+  }
 </style>
+
 <div class="container-fluide">
-      <div
-        class="badge text-bg-light text-wrap fs-1 text-center mt-1 mb-5"
-        style="width: 100%; color: black !important"
-      >
-        <h1 class="page-title"><b>My Blogs</b></h1>
-      </div>
-      <div class="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 mb-3">
-        <% if(blogsdata.length<=0){%>
-        <h1 class="page-title"><b>You have not uploaded any blog yet !</b></h1>
-        <% } %> <% for(blog of blogsdata){%>
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card" style="width: 18rem">
-            <img
-              src="<%= blog.ImageUrl1  %>"
-              class="card-img-top p-2"
-              alt="..."
-            />
-            <h3><%= blog.title %></h3>
-            <div class="card-body p-2">
-              <p class="card-text"><%= blog.intro %></p>
-            </div>
-            <form action="/blog/details/<%= blog._id  %>">
-              <button class="btn btn-info m-2" type="submit">Read more</button>
-            </form>
-          </div>
+  <div
+    class="badge text-bg-light text-wrap fs-1 text-center mt-1 mb-5"
+    style="width: 100%; color: black !important"
+  >
+    <h1 class="page-title"><b>My Blogs</b></h1>
+  </div>
+  <div class="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 mb-3">
+    <% if (blogsdata.length <= 0) { %>
+    <h1 class="page-title"><b>You have not uploaded any blog yet !</b></h1>
+    <% } %> <% for (blog of blogsdata) { %>
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card" style="width: 18rem">
+        <img src="<%= blog.ImageUrl1 %>" class="card-img-top p-2" alt="..." />
+        <h3><%= blog.title %></h3>
+        <div class="card-body p-2">
+          <p class="card-text"><%= blog.intro %></p>
         </div>
-        <% }%>
+        <form action="/blog/details/<%= blog._id %>">
+          <button class="btn btn-info m-2" type="submit">Read more</button>
+        </form>
       </div>
     </div>
+    <% } %>
   </div>
+</div>

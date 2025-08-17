@@ -1,127 +1,132 @@
 <%- layout("./layouts/boilerplate.ejs") -%>
 
 <style>
+  body {
+    background-color: #f8f9fa;
+  }
   .form {
-    margin-top: 4rem !important;
-    border: 1px solid rgb(245, 238, 238);
+    margin-top: 3rem !important;
+    border: 1px solid #eee;
     background-color: white;
     border-radius: 1rem;
-    box-shadow: 5px 5px 5px 10px whitesmoke;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
   }
-  .text-center {
+  .form h1 {
     background-color: #322c2b;
     color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
     margin-bottom: 2rem;
   }
+  .btn-custom {
+    border-radius: 30px;
+    padding: 0.7rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  .btn-custom:hover {
+    background-color: #322c2b;
+    color: #fff;
+  }
 </style>
-<div class="container m-4">
+
+<div class="container">
   <form
     action="/add_blogs"
     method="post"
-    class="form m-3 p-4"
+    class="form"
     enctype="multipart/form-data"
   >
-    <h1 class="text-center">Add Blog</h1>
-    <div class="row">
-      <div class="mb-3 col-9 offset-1">
+    <h1>Add Blog</h1>
+
+    <div class="row mb-3">
+      <div class="col-12">
         <label for="title" class="form-label"><b>Title</b></label>
         <input
           type="text"
           class="form-control"
           id="title"
-          aria-describedby="title"
           name="title"
-          placeholder="write title"
+          placeholder="Write blog title"
           required
         />
       </div>
     </div>
-    <div class="row row-col-lg-3 row-col-md-2 row-col-sm-1">
-      <div class="mb-3 col-3 offset-1">
-        <label for="image" class="form-label"><b>ImageURL1</b></label>
+
+    <div class="row mb-3 g-3">
+      <div class="col-12 col-md-4">
+        <label for="image1" class="form-label"><b>Image URL 1</b></label>
+        <input type="file" class="form-control" id="image1" name="ImageUrl1" />
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="image2" class="form-label"><b>Image URL 2</b></label>
+        <input type="file" class="form-control" id="image2" name="ImageUrl2" />
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="image3" class="form-label"><b>Image URL 3</b></label>
+        <input type="file" class="form-control" id="image3" name="ImageUrl3" />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12 col-md-6">
+        <label for="location" class="form-label"><b>Location</b></label>
         <input
-          type="file"
+          type="text"
           class="form-control"
-          id="image"
-          name="ImageUrl1"
-          placeholder="ImageUrl1"
+          id="location"
+          name="location"
+          placeholder="Location name"
+          required
         />
       </div>
-      <div class="mb-3 col-3">
-        <label for="image" class="form-label"><b>ImageURL2</b></label>
+      <div class="col-12 col-md-6">
+        <label for="country" class="form-label"><b>Country</b></label>
         <input
-          type="file"
+          type="text"
           class="form-control"
-          id="image"
-          name="ImageUrl2"
-          placeholder="ImageUrl2"
-        />
-      </div>
-      <div class="mb-3 col-3">
-        <label for="image" class="form-label"><b>ImageURL3</b></label>
-        <input
-          type="file"
-          class="form-control"
-          id="image"
-          name="ImageUrl3"
-          placeholder="ImageUrl3"
+          id="country"
+          name="country"
+          placeholder="Country name"
+          required
         />
       </div>
     </div>
 
-    <div class="mb-3 col-9 offset-1">
-      <label for="location" class="form-label"><b>Location</b></label>
-      <input
-        type="text"
-        class="form-control"
-        id="location"
-        name="location"
-        placeholder="location name"
-        required
-      />
-    </div>
-
-    <div class="mb-3 col-9 offset-1">
-      <label for="country" class="form-label"><b>Country</b></label>
-      <input
-        type="text"
-        class="form-control"
-        id="country"
-        name="country"
-        placeholder="country name"
-        equired
-      />
-    </div>
-
-    <div class="mb-3 col-9 offset-1">
-      <label for="intro" class="form-label"><b>Intro</b></label>
-      <div class="form-floating">
+    <div class="row mb-3">
+      <div class="col-12">
+        <label for="intro" class="form-label"><b>Intro</b></label>
         <textarea
           class="form-control"
-          placeholder="Leave a comment here"
           id="intro"
-          required
-          style="height: 100px"
           name="intro"
+          rows="3"
+          placeholder="Write short introduction"
+          required
         ></textarea>
       </div>
     </div>
 
-    <div class="mb-3 col-9 offset-1">
-      <label for="about" class="form-label"><b>About</b></label>
-      <div class="form-floating">
+    <div class="row mb-4">
+      <div class="col-12">
+        <label for="about" class="form-label"><b>About</b></label>
         <textarea
           class="form-control"
-          placeholder="Leave a comment here"
           id="about"
-          style="height: 100px"
-          required
           name="about"
+          rows="4"
+          placeholder="Write detailed blog content"
+          required
         ></textarea>
       </div>
+    </div>
 
-      <button type="submit" class="btn btn-primary btn-lg col-4 offset-4 mt-3">
-        <b>Submit</b>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-custom w-50">
+        Submit Blog
       </button>
     </div>
   </form>
