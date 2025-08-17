@@ -1,4 +1,4 @@
-# BRAINWAVE_MATRIX_SOLUTION_BLOG_SITE
+# MERN STACK WEBSITE
 
 # 🌍 Blog Website for Famous Landmarks
 
@@ -65,3 +65,35 @@ Delete comments as needed.<br/>
 
 This project was built as part of my coding journey intrest . The platform demonstrates my ability to build a full-stack application with key features such as user authentication, CRUD functionality, and a dynamic comments system.<br/>
 and during building this project i learn a lot like user auhtentication and auhterization and building scalable mongoose schemma and connection between multiple schemas.
+
+
+---
+
+## 🚀 Live Link
+**Wanderlust - Live on Render**  
+[Live Demo](https://blogify-project-l1hg.onrender.com/user/home)
+
+---
+
+## ⚙️ Installation and Setup
+
+To run **Blogify-website** locally:
+
+1. **Clone the repository:**
+     ```bash
+     https://github.com/MohmmadMazid/Blogify-website.git
+     ```
+2. **Navigate to the project directory:**  
+    ```bash
+        cd Blogify-website
+     ```
+3. **Install dependencies:**  
+     ```bash
+         npm install
+     ```
+4. **Create a .env file for environment variables**:  
+    - Add the necessary variables (e.g., database URI, Cloudinary credentials, etc).
+5. **Run the project:**
+     ```bash
+         npm start
+     ```
